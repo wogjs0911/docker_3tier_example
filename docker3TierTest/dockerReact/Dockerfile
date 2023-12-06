@@ -1,4 +1,4 @@
 FROM node
 COPY ./ ./
-RUN npm install
+RUN npm install -g react-scripts
 ENTRYPOINT ["npm", "run", "start"]

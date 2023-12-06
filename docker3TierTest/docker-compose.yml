@@ -7,12 +7,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 3025
       MYSQL_DATABASE: test
-      ports:
-        - 3306:3306
-      volumes:
-        - ./dockerMariaDB/data:/var/lib/mysql
-        - ./dockerMariaDB/conf.d:/etc/mysql/conf.d
-        - ./dockerMariaDB/db/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./dockerMariaDB/data:/var/lib/mysql
+      - ./dockerMariaDB/conf.d:/etc/mysql/conf.d
+      - ./dockerMariaDB/db/initdb.d:/docker-entrypoint-initdb.d
   backend:
     build:
       context: ./dockerBackend
@@ -23,7 +23,7 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 3025
     ports:
-      - 8080:8080
+      - '8080:8080'
     depends_on:
       - database
   frontend:
@@ -32,7 +32,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 3000:3000
+      - '3000:3000'
     depends_on:
       - backend
 
