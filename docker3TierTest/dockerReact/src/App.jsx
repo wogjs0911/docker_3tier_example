@@ -1,12 +1,12 @@
 import './App.css'
+import Api from "./components/Api.jsx";
 
 function App() {
 
   return (
     <>
-      <div>
         hi react!!
-      </div>
+        <Api/>
     </>
   )
 }

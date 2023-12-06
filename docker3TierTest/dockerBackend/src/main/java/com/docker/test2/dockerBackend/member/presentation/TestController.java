@@ -21,12 +21,9 @@ public class TestController {
         return memberRepository.findAll();
     }
 
-    @PostMapping("/add")
+    @GetMapping ("/add")
     public Member addMember(Member member){
-        member.builder()
-                .id(1L)
-                .username("gimjae")
-                .build();
+        member.setUsername("jaejae3");
         return memberRepository.save(member);
     }
 }
