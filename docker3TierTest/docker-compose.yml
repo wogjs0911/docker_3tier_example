@@ -28,7 +28,7 @@ services:
       - database
   frontend:
     build:
-      context: ./dockerReact
+      context: ./dockerreact
       dockerfile: Dockerfile
     restart: always
     ports:
